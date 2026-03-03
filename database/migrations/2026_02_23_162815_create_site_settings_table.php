@@ -6,20 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('site_settings', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->text('description')->nullable();
+            $table->string('keywords')->nullable();
+            $table->string('author')->nullable();
+            $table->string('email')->nullable();
+            $table->string('bg_image_url')->nullable();      // Imagen de fondo principal
+            $table->string('bg_image2_url')->nullable();     // Imagen de fondo secundaria
+            $table->string('logo_url')->nullable();
+            $table->string('favicon_url')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('site_settings');
